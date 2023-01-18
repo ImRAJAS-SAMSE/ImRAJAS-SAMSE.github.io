@@ -1,0 +1,150 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Personal Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f4ea;
+      }
+
+      h2 {
+        text-shadow: 4px 4px 4px #aaa;
+      }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 36px;
+      }
+      .header p {
+        margin: 0;
+        font-size: 16px;
+      }
+      .main {
+        display: flex;
+      }
+      .main .profile-picture {
+        padding-top: 40px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20px;
+      }
+      .main .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .main .profile-info {
+        padding-top: 50px;
+        flex: 1;
+      }
+      .main .profile-info h2 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .main .profile-info p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .main .profile-info ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .main .profile-info li {
+        margin-bottom: 10px;
+      }
+      .main .profile-info li strong {
+        font-weight: bold;
+      }
+
+      .previous-button {
+        background-color: #f8f4ea;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+      }
+
+      .previous-button:hover {
+        color: hsl(0, 41%, 57%);
+      }
+    </style>
+    <input
+      type="button"
+      class="previous-button"
+      onclick="location.href='index.html';"
+      value="Home-page"
+    />
+    <div class="container">
+      <div class="header">
+        <h1>About Me</h1>
+        <p>Hi there! My name is Rajas Samse and I am a front-end developer</p>
+      </div>
+      <div class="main">
+        <div class="profile-picture">
+          <img src="images/raj-modified.png" alt="Profile picture" />
+        </div>
+        <div class="profile-info">
+          <h2>Rajas Samse</h2>
+          <p style="font-family: 'Indie Flower', cursive; font-size: 20px">
+            Welcome to my personal website! My name is Rajas Samse and I am a
+            front-end web developer based in Pune, India. I have started my web
+            development journey in June 2022 when my parents gifted me a laptop.
+            I am excited to share my skills and experience with you. I have
+            always had a passion for technology and the internet, and that led
+            me to pursue a career in web development. I've gained some
+            experience working on a variety of web development projects. Some of
+            my areas of expertise include <bold>HTML, CSS, JavaScript.</bold> I
+            am always looking to learn and expand my knowledge, and I enjoy
+            staying up-to-date with the latest trends and technologies in the
+            field. Thank you for visiting my website. If you have any questions
+            or would like to work with me on a project, please don't hesitate
+            to contact me.
+          </p>
+          <br />
+          <ul>
+            <li><strong>Location:</strong> Pune, India</li>
+            <li><strong>Email:</strong> samserajas@gmail.com</li>
+            <li>
+              <strong>University:</strong> Symbiosis International University
+            </li>
+            <li><strong>College:</strong> Symbiosis Institute of technology</li>
+            <li>
+              <strong>Branch:</strong> Artificial Intelligence And Machine
+              Learning
+            </li>
+            <li><strong>Graduation:</strong> Under-Graduation (1st year)</li>
+            <li><strong>Open source experience:</strong> freshy</li>
+          </ul>
+        </div>
+          
+      </div>
+    </div>
+  </body>
+</html>

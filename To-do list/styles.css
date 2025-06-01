@@ -152,3 +152,127 @@ main {
 .task .actions .delete {
   color: crimson;
 }
+
+/* Navigation and Theme Toggle Button Styles */
+.navigation-buttons-todo {
+  text-align: center;
+  padding: 20px 16px; /* Match header/main padding */
+  max-width: 800px; /* Match header/main width */
+  width: 100%;
+  margin: 0 auto; /* Center it */
+}
+
+#themeToggleToDo, .home-button-todo {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust as needed */
+  font-weight: 600;
+  margin: 0 8px;
+  transition: 0.4s;
+}
+
+/* Default (Dark Theme) styles for new buttons */
+#themeToggleToDo {
+  background-color: var(--darker);
+  color: var(--purple);
+  border: 1px solid var(--grey);
+}
+
+#themeToggleToDo:hover {
+  background-color: var(--darkest);
+  opacity: 0.9;
+}
+
+.home-button-todo {
+  display: inline-block; /* For proper link styling */
+  background-color: var(--darker);
+  color: var(--purple);
+  text-decoration: none;
+  border: 1px solid var(--grey);
+}
+
+.home-button-todo:hover {
+  background-color: var(--darkest);
+  opacity: 0.9;
+}
+
+
+/* Light Mode Styles */
+body.light-mode {
+  --dark: #f0f0f0; /* Light background */
+  --darker: #e0e0e0; /* Slightly darker light background component */
+  --darkest: #d0d0d0; /* Even darker light background component / cards */
+  --grey: #555; /* Darker text/grey elements */
+  --pink: #d63384; /* Keep or adjust if contrast is an issue */
+  --purple: #7944d8; /* Keep or adjust */
+  --light: #333; /* Main text color in light mode */
+}
+
+body.light-mode header h1 {
+  color: var(--grey);
+}
+
+body.light-mode #new-task-input {
+  background-color: var(--darker); /* Uses new --darker */
+  color: var(--light); /* Uses new --light */
+}
+
+body.light-mode #new-task-input::placeholder {
+  color: var(--grey);
+}
+
+body.light-mode #new-task-submit {
+  background-color: var(--darker); /* Uses new --darker */
+  color: var(--pink);
+  /* border: 1px solid var(--grey); */ /* Optional border */
+}
+
+body.light-mode .task-list h2 {
+  color: var(--grey);
+}
+
+body.light-mode #tasks .task {
+  background-color: var(--darkest); /* Uses new --darkest */
+}
+
+body.light-mode .task .content .text {
+  color: var(--light); /* Uses new --light */
+}
+
+body.light-mode .task .content .text:not(:read-only) {
+  color: var(--pink); /* Or a light-mode adjusted vibrant color */
+}
+
+body.light-mode .task .actions .edit {
+  /* Gradient might be hard to make look good with variable overrides alone */
+  /* Solid color for simplicity in light mode */
+  background-image: none;
+  -webkit-text-fill-color: var(--purple); /* Use the variable for color */
+  color: var(--purple);
+}
+
+body.light-mode .task .actions .delete {
+  color: #b00020; /* A standard dark red for delete actions */
+}
+
+/* Light mode styles for new buttons */
+body.light-mode #themeToggleToDo {
+  background-color: var(--darker); /* Uses new --darker */
+  color: var(--purple);
+  border: 1px solid var(--grey);
+}
+
+body.light-mode #themeToggleToDo:hover {
+  background-color: var(--darkest); /* Uses new --darkest */
+}
+
+body.light-mode .home-button-todo {
+  background-color: var(--darker); /* Uses new --darker */
+  color: var(--purple);
+  border: 1px solid var(--grey);
+}
+
+body.light-mode .home-button-todo:hover {
+  background-color: var(--darkest); /* Uses new --darkest */
+}

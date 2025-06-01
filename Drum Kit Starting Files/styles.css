@@ -79,3 +79,75 @@ footer {
   margin: 10px;
   background-color: white;
 }
+
+/* Light Mode Styles */
+body.light-mode {
+  background-color: #f0f0f0;
+}
+
+body.light-mode h1 {
+  color: #333;
+  text-shadow: 2px 0 #888;
+}
+
+body.light-mode footer {
+  color: #333;
+}
+
+body.light-mode .drum {
+  background-color: #ddd; /* General background for buttons in light mode */
+  color: #333; /* Text color for drum letters */
+  border: 10px solid #bbb;
+  text-shadow: 1px 0 #ccc;
+}
+
+/* Specific drum background images will still apply unless overridden here */
+body.light-mode .w { background-image: url("images/tom1.png"); } /* Ensure images are still there or provide light versions */
+body.light-mode .a { background-image: url("images/tom2.png"); }
+body.light-mode .s { background-image: url("images/tom3.png"); }
+body.light-mode .d { background-image: url("images/tom4.png"); }
+body.light-mode .j { background-image: url("images/snare.png"); }
+body.light-mode .k { background-image: url("images/crash.png"); }
+body.light-mode .l { background-image: url("images/kick.png"); }
+
+
+body.light-mode .pressed {
+  box-shadow: 0 3px 4px 0 #888;
+  opacity: 0.7; /* Adjusted opacity for light mode if needed */
+}
+
+/* Navigation and Theme Toggle Button Styles */
+.navigation-buttons {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#themeToggleDrumKit, .home-button-drum {
+  background-color: #DA0463; /* Default dark theme button color */
+  color: #DBEDF3;
+  border: 2px solid #DBEDF3;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: "Arvo", cursive;
+  font-size: 1rem;
+  margin: 0 10px;
+  cursor: pointer;
+  text-decoration: none; /* For the link */
+}
+
+#themeToggleDrumKit:hover, .home-button-drum:hover {
+  background-color: #DBEDF3;
+  color: #DA0463;
+}
+
+/* Light mode styles for navigation buttons */
+body.light-mode #themeToggleDrumKit, body.light-mode .home-button-drum {
+  background-color: #888; /* Light theme button color */
+  color: #f0f0f0;
+  border: 2px solid #555;
+}
+
+body.light-mode #themeToggleDrumKit:hover, body.light-mode .home-button-drum:hover {
+  background-color: #f0f0f0;
+  color: #555;
+}

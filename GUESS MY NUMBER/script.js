@@ -104,3 +104,48 @@ function addingFunction() {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 }
+
+// Theme Toggle Logic for Guess My Number
+const themeToggleGuessNum = document.getElementById('themeToggleGuessNum');
+const bodyGuessNum = document.body;
+const guessNumThemeStatusKey = 'guessNumThemeStatus';
+
+function applyGuessNumTheme() {
+  const currentTheme = localStorage.getItem(guessNumThemeStatusKey);
+  if (currentTheme === 'light') {
+    bodyGuessNum.classList.add('light-mode');
+    if (themeToggleGuessNum) themeToggleGuessNum.textContent = 'Toggle Dark Theme';
+    // If game was won, and body background was changed by game logic, re-apply light theme win color
+    if (bodyGuessNum.style.backgroundColor === 'rgb(96, 179, 71)') { // #60b347
+        // bodyGuessNum.style.backgroundColor = '#90ee90'; // Or add a specific class like game-won-light
+    }
+  } else {
+    bodyGuessNum.classList.remove('light-mode');
+    if (themeToggleGuessNum) themeToggleGuessNum.textContent = 'Toggle Light Theme';
+    // If body background was changed by game logic (e.g. to green on win), and now switching to dark, revert to dark theme default
+     if (bodyGuessNum.style.backgroundColor === 'rgb(96, 179, 71)') { // #60b347
+        // bodyGuessNum.style.backgroundColor = '#222'; // Default dark theme
+    }
+  }
+}
+
+if (themeToggleGuessNum) {
+  themeToggleGuessNum.addEventListener('click', () => {
+    bodyGuessNum.classList.toggle('light-mode');
+    if (bodyGuessNum.classList.contains('light-mode')) {
+      localStorage.setItem(guessNumThemeStatusKey, 'light');
+      themeToggleGuessNum.textContent = 'Toggle Dark Theme';
+      // If game was won and body has green background, this might need adjustment
+      // For simplicity, the !important in CSS for body.light-mode background is preferred.
+    } else {
+      localStorage.setItem(guessNumThemeStatusKey, 'dark');
+      themeToggleGuessNum.textContent = 'Toggle Light Theme';
+      // If body has green background from win, and we toggle to dark, it will stay green
+      // unless explicitly reset here or !important is used for body background-color in dark mode (which it is by default).
+    }
+  });
+}
+
+// Apply theme on initial load
+// This runs after the main game script, so DOM is ready.
+applyGuessNumTheme();

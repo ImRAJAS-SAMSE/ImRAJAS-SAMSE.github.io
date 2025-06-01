@@ -52,6 +52,26 @@ h3 {
   color: #66bfbf;
 }
 
+#darkModeToggle {
+  position: absolute;
+  top: 28px;
+  right: 200px; /* Adjusted to be to the right of "About Me" */
+  background-color: #66bfbf;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#darkModeToggle:hover {
+  background-color: #11999e;
+}
+
 .top-container {
   background-color: #b9f8d3;
   position: relative;
@@ -162,3 +182,95 @@ a:hover {
   height: 100px;
   width: 200px;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #333;
+  color: #eee;
+}
+
+.dark-mode h1 {
+  color: #82cacb; /* A lighter shade of the original h1 color */
+}
+
+.dark-mode h2.heading { /* More specific selector for the sub-heading */
+  color: #82cacb;
+}
+
+.dark-mode h3 {
+  color: #5cd7d7; /* A lighter shade of the original h3 color */
+}
+
+.dark-mode .top-container {
+  background-color: #444;
+}
+
+.dark-mode .bottom-container {
+  background-color: #222;
+}
+
+.dark-mode a {
+  color: #5cd7d7;
+}
+
+.dark-mode a:hover {
+  color: #aaf0f0;
+}
+
+.dark-mode .JS,
+.dark-mode .PI {
+  color: #5cd7d7;
+}
+
+.dark-mode .JS:hover,
+.dark-mode .PI:hover {
+  color: #82cacb;
+}
+
+.dark-mode .hr {
+  border-color: #555;
+}
+
+.dark-mode .footer-link {
+  color: #5cd7d7;
+}
+
+.dark-mode .footer-link:hover {
+  color: #aaf0f0;
+}
+
+.dark-mode .bt { /* Assuming .bt is the contact me button */
+  background: #5cd7d7;
+  background-image: -webkit-linear-gradient(top, #5cd7d7, #4aa0a0);
+  background-image: -moz-linear-gradient(top, #5cd7d7, #4aa0a0);
+  background-image: -ms-linear-gradient(top, #5cd7d7, #4aa0a0);
+  background-image: -o-linear-gradient(top, #5cd7d7, #4aa0a0);
+  background-image: linear-gradient(to bottom, #5cd7d7, #4aa0a0);
+  color: #333; /* Darker text for light button */
+}
+
+.dark-mode .bt:hover {
+  background: #aaf0f0;
+  background-image: -webkit-linear-gradient(top, #aaf0f0, #77c4c4);
+  background-image: -moz-linear-gradient(top, #aaf0f0, #77c4c4);
+  background-image: -ms-linear-gradient(top, #aaf0f0, #77c4c4);
+  background-image: -o-linear-gradient(top, #aaf0f0, #77c4c4);
+  background-image: linear-gradient(to bottom, #aaf0f0, #77c4c4);
+  color: #222; /* Darker text for light button */
+}
+
+.dark-mode .heading2 { /* For "Get In Touch" section text */
+  color: #eee;
+}
+
+/* Ensure toggle button is styled for dark mode if needed, though its current style might be fine */
+/* No specific dark mode style for #darkModeToggle itself, as its current colors might offer good contrast on #444 background. */
+/* If not, add:
+.dark-mode #darkModeToggle {
+  background-color: #5cd7d7;
+  color: #333;
+}
+.dark-mode #darkModeToggle:hover {
+  background-color: #aaf0f0;
+}
+*/

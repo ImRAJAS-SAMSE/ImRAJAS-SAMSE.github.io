@@ -39,9 +39,59 @@
               color: hsl(0, 41%, 57%);
               cursor: pointer;
           }
+
+      /* Dark Mode Styles for myprojects.html */
+      body.dark-mode {
+        background-color: #333;
+        color: #eee;
+      }
+      .dark-mode .mp { /* My projects heading */
+        color: #82cacb;
+      }
+      .dark-mode .column {
+        border: 1px solid #555;
+        background-color: #444;
+      }
+      .dark-mode .bt { /* Home-page button */
+        background-color: #444;
+        color: #eee;
+        border: 1px solid #555; /* Added border for better visibility */
+      }
+      .dark-mode .bt:hover {
+        color: #ff8a8a; /* A light red for hover */
+        background-color: #555;
+      }
+      .dark-mode a {
+        color: #5cd7d7;
+      }
+      .dark-mode a:hover {
+        color: #aaf0f0;
+      }
+      /* Style for the new toggle button */
+      #darkModeToggleProjects {
+        background-color: #66bfbf; /* Same as index.html toggle */
+        color: white;
+        border: none;
+        padding: 5px 10px; /* Adjusted padding */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px; /* Adjusted font size */
+        cursor: pointer;
+        border-radius: 5px;
+        margin-left: 10px; /* Added margin */
+      }
+      .dark-mode #darkModeToggleProjects {
+        background-color: #5cd7d7;
+        color: #333;
+      }
+      .dark-mode #darkModeToggleProjects:hover {
+        background-color: #aaf0f0;
+      }
     </style>
 
 <input type="button" class="bt" onclick="location.href='index.html';" value="Home-page" />
+<button id="darkModeToggleProjects">Toggle Dark Mode</button>
 <h1 class="mp">My projects</h1>
 
 <div class="container">
@@ -99,4 +149,48 @@
 
 
   </body>
+  <script>
+    const darkModeToggleProjects = document.getElementById('darkModeToggleProjects');
+    const bodyProjects = document.body;
+
+    function enableDarkModeProjects() {
+      bodyProjects.classList.add('dark-mode');
+      localStorage.setItem('darkModeStatus', 'enabled');
+      // Optional: Update button text if you want
+      // if (darkModeToggleProjects) darkModeToggleProjects.textContent = 'Disable Dark Mode';
+    }
+
+    function disableDarkModeProjects() {
+      bodyProjects.classList.remove('dark-mode');
+      localStorage.setItem('darkModeStatus', 'disabled');
+      // Optional: Update button text
+      // if (darkModeToggleProjects) darkModeToggleProjects.textContent = 'Enable Dark Mode';
+    }
+
+    if (darkModeToggleProjects) {
+      darkModeToggleProjects.addEventListener('click', () => {
+        if (bodyProjects.classList.contains('dark-mode')) {
+          disableDarkModeProjects();
+        } else {
+          enableDarkModeProjects();
+        }
+      });
+    }
+
+    // Check localStorage on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkModeStatus = localStorage.getItem('darkModeStatus');
+      if (darkModeStatus === 'enabled') {
+        enableDarkModeProjects();
+      }
+      // Optional: set button text based on initial state
+      // if (darkModeToggleProjects) {
+      //   if (bodyProjects.classList.contains('dark-mode')) {
+      //     darkModeToggleProjects.textContent = 'Disable Dark Mode';
+      //   } else {
+      //     darkModeToggleProjects.textContent = 'Enable Dark Mode';
+      //   }
+      // }
+    });
+  </script>
 </html>

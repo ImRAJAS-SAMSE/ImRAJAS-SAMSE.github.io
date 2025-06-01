@@ -92,3 +92,36 @@ btnHold.addEventListener('click', function () {
   }
 });
 btnNew.addEventListener('click', init);
+
+// Theme Toggle Logic for Pig Game
+const themeTogglePigGame = document.getElementById('themeTogglePigGame');
+const bodyPigGame = document.body;
+const pigGameThemeStatusKey = 'pigGameThemeStatus';
+
+function applyPigGameTheme() {
+  const currentTheme = localStorage.getItem(pigGameThemeStatusKey);
+  if (currentTheme === 'dark') {
+    bodyPigGame.classList.add('dark-mode');
+    if (themeTogglePigGame) themeTogglePigGame.textContent = 'Toggle Light Theme';
+  } else {
+    bodyPigGame.classList.remove('dark-mode');
+    if (themeTogglePigGame) themeTogglePigGame.textContent = 'Toggle Dark Theme';
+  }
+}
+
+if (themeTogglePigGame) {
+  themeTogglePigGame.addEventListener('click', () => {
+    bodyPigGame.classList.toggle('dark-mode');
+    if (bodyPigGame.classList.contains('dark-mode')) {
+      localStorage.setItem(pigGameThemeStatusKey, 'dark');
+      themeTogglePigGame.textContent = 'Toggle Light Theme';
+    } else {
+      localStorage.setItem(pigGameThemeStatusKey, 'light'); // Or removeItem for default light
+      themeTogglePigGame.textContent = 'Toggle Dark Theme';
+    }
+  });
+}
+
+// Apply theme on initial load
+// This runs after the main game script, so DOM is ready.
+applyPigGameTheme();

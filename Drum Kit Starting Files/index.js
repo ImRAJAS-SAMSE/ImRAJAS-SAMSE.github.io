@@ -1,3 +1,36 @@
+// Theme Toggle Logic for Drum Kit
+const themeToggleDrumKit = document.getElementById('themeToggleDrumKit');
+const bodyDrumKit = document.body;
+const drumKitThemeStatusKey = 'drumKitThemeStatus';
+
+function applyDrumKitTheme() {
+  const currentTheme = localStorage.getItem(drumKitThemeStatusKey);
+  if (currentTheme === 'light') {
+    bodyDrumKit.classList.add('light-mode');
+    if (themeToggleDrumKit) themeToggleDrumKit.textContent = 'Toggle Dark Theme';
+  } else {
+    bodyDrumKit.classList.remove('light-mode');
+    if (themeToggleDrumKit) themeToggleDrumKit.textContent = 'Toggle Light Theme';
+  }
+}
+
+if (themeToggleDrumKit) {
+  themeToggleDrumKit.addEventListener('click', () => {
+    bodyDrumKit.classList.toggle('light-mode');
+    if (bodyDrumKit.classList.contains('light-mode')) {
+      localStorage.setItem(drumKitThemeStatusKey, 'light');
+      themeToggleDrumKit.textContent = 'Toggle Dark Theme';
+    } else {
+      localStorage.setItem(drumKitThemeStatusKey, 'dark'); // Or removeItem
+      themeToggleDrumKit.textContent = 'Toggle Light Theme';
+    }
+  });
+}
+
+// Apply theme on initial load
+document.addEventListener('DOMContentLoaded', applyDrumKitTheme);
+
+// Original Drum Kit Logic
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 for (var i = 0; i < numberOfDrumButtons; i++) {

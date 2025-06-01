@@ -60,3 +60,39 @@ window.addEventListener("load", function () {
     });
   });
 });
+
+// Theme Toggle Logic for To-Do List
+const themeToggleToDo = document.getElementById('themeToggleToDo');
+const bodyToDo = document.body;
+const toDoThemeStatusKey = 'toDoThemeStatus';
+
+function applyToDoTheme() {
+  const currentTheme = localStorage.getItem(toDoThemeStatusKey);
+  if (currentTheme === 'light') {
+    bodyToDo.classList.add('light-mode');
+    if (themeToggleToDo) themeToggleToDo.textContent = 'Toggle Dark Theme';
+  } else {
+    bodyToDo.classList.remove('light-mode');
+    if (themeToggleToDo) themeToggleToDo.textContent = 'Toggle Light Theme';
+  }
+}
+
+if (themeToggleToDo) {
+  themeToggleToDo.addEventListener('click', () => {
+    bodyToDo.classList.toggle('light-mode');
+    if (bodyToDo.classList.contains('light-mode')) {
+      localStorage.setItem(toDoThemeStatusKey, 'light');
+      themeToggleToDo.textContent = 'Toggle Dark Theme';
+    } else {
+      localStorage.setItem(toDoThemeStatusKey, 'dark'); // Or removeItem for default dark
+      themeToggleToDo.textContent = 'Toggle Light Theme';
+    }
+  });
+}
+
+// Apply theme after existing scripts have potentially run and DOM is fully ready.
+// Since this script is at the end of body, direct execution here is usually fine.
+// However, to be absolutely sure it runs after the 'load' event listener above,
+// we can also wrap it in a 'DOMContentLoaded' or 'load' listener.
+// For simplicity here, direct execution as the script is deferred by its position.
+applyToDoTheme();

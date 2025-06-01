@@ -94,6 +94,59 @@
       .previous-button:hover {
         color: hsl(0, 41%, 57%);
       }
+
+      /* Dark Mode Styles for aboutme.html */
+      body.dark-mode {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+      }
+      .dark-mode .header { /* This targets the header div */
+        background-color: #1c1c1c;
+        color: #f0f0f0;
+      }
+      .dark-mode h2 {
+        text-shadow: 4px 4px 4px #111; /* Darker shadow for dark bg */
+        color: #d0d0d0;
+      }
+      .dark-mode .main .profile-info p {
+        color: #c0c0c0;
+      }
+      .dark-mode .main .profile-info ul li {
+        color: #c0c0c0;
+      }
+      .dark-mode .previous-button { /* Home-page button */
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+        border: 1px solid #555;
+      }
+      .dark-mode .previous-button:hover {
+        color: #ff7b7b; /* Light red for hover */
+        background-color: #3e3e3e;
+      }
+
+      /* Style for the new toggle button */
+      #darkModeToggleAbout {
+        background-color: #66bfbf; /* Style similar to index.html toggle */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute; /* Positioning near home button */
+        top: 10px;
+        left: 120px; /* Adjust as needed to place it next to home button */
+      }
+      .dark-mode #darkModeToggleAbout {
+        background-color: #5cd7d7;
+        color: #333;
+      }
+      .dark-mode #darkModeToggleAbout:hover {
+        background-color: #aaf0f0;
+      }
     </style>
     <input
       type="button"
@@ -101,6 +154,7 @@
       onclick="location.href='index.html';"
       value="Home-page"
     />
+    <button id="darkModeToggleAbout">Toggle Dark Mode</button>
     <div class="container">
       <div class="header">
         <h1>About Me</h1>
@@ -147,4 +201,48 @@
       </div>
     </div>
   </body>
+  <script>
+    const darkModeToggleAbout = document.getElementById('darkModeToggleAbout');
+    const bodyAbout = document.body;
+
+    function enableDarkModeAbout() {
+      bodyAbout.classList.add('dark-mode');
+      localStorage.setItem('darkModeStatus', 'enabled');
+      // Optional: Update button text
+      // if (darkModeToggleAbout) darkModeToggleAbout.textContent = 'Disable Dark Mode';
+    }
+
+    function disableDarkModeAbout() {
+      bodyAbout.classList.remove('dark-mode');
+      localStorage.setItem('darkModeStatus', 'disabled');
+      // Optional: Update button text
+      // if (darkModeToggleAbout) darkModeToggleAbout.textContent = 'Enable Dark Mode';
+    }
+
+    if (darkModeToggleAbout) {
+      darkModeToggleAbout.addEventListener('click', () => {
+        if (bodyAbout.classList.contains('dark-mode')) {
+          disableDarkModeAbout();
+        } else {
+          enableDarkModeAbout();
+        }
+      });
+    }
+
+    // Check localStorage on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkModeStatus = localStorage.getItem('darkModeStatus');
+      if (darkModeStatus === 'enabled') {
+        enableDarkModeAbout();
+      }
+      // Optional: set button text based on initial state
+      // if (darkModeToggleAbout) {
+      //   if (bodyAbout.classList.contains('dark-mode')) {
+      //     darkModeToggleAbout.textContent = 'Disable Dark Mode';
+      //   } else {
+      //     darkModeToggleAbout.textContent = 'Enable Dark Mode';
+      //   }
+      // }
+    });
+  </script>
 </html>

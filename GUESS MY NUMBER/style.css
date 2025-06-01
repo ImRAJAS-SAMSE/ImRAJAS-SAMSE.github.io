@@ -117,3 +117,69 @@ h1 {
 .label-score {
   margin-bottom: 2rem;
 }
+
+/* Navigation and Theme Toggle Button Styles */
+.navigation-buttons-guessnum {
+  text-align: center;
+  padding: 20px 0; /* Add some padding above/below the buttons */
+  /* position: relative; Ensure it's part of the normal flow or adjust as needed */
+  /* bottom: 20px; If wanting to fix at bottom, more styling would be needed */
+  width: 100%;
+}
+
+#themeToggleGuessNum, .home-button-guessnum {
+  margin: 0 10px;
+  padding: 1rem 2rem; /* Slightly smaller padding than game .btn if desired */
+  font-size: 1.5rem; /* Slightly smaller font size */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  color: #333;
+  background-color: #f0f0f0 !important; /* Important to override direct JS style */
+}
+
+body.light-mode header {
+  border-bottom: 7px solid #333;
+}
+
+body.light-mode main {
+  color: #333;
+}
+
+body.light-mode .number {
+  background: #333;
+  color: #eee;
+}
+
+body.light-mode .guess {
+  border: 4px solid #333;
+  color: #333; /* Text color when typing */
+  background-color: #fff; /* Background for the input field */
+}
+
+body.light-mode .btn { /* General button styling in light mode */
+  background-color: #555; /* Darker buttons for contrast on light background */
+  color: #eee;
+  border: 1px solid #eee; /* Optional border */
+}
+
+body.light-mode .btn:hover {
+  background-color: #777;
+}
+
+/* Specific overrides for theme/home buttons if they use .btn and need different light mode styling */
+body.light-mode #themeToggleGuessNum, body.light-mode .home-button-guessnum {
+  background-color: #ddd; /* Lighter buttons for light mode */
+  color: #333;
+  border: 1px solid #333;
+}
+
+body.light-mode #themeToggleGuessNum:hover, body.light-mode .home-button-guessnum:hover {
+  background-color: #ccc;
+}
+
+/* Ensure game's direct body style changes don't ruin theme */
+body.light-mode.game-won { /* Example if you add a class on win */
+  background-color: #90ee90 !important; /* A light green for win in light mode */
+}

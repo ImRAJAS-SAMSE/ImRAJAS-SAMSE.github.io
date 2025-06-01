@@ -169,3 +169,89 @@ main {
 .hidden {
   display: none;
 }
+
+/* Navigation and Theme Toggle Button Styles */
+.navigation-buttons-pig {
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  /* These buttons will be outside the main game area, directly in body */
+}
+
+#themeTogglePigGame, .home-button-pig {
+  /* Re-use .btn styles by default, but position them here */
+  /* They are not absolutely positioned like game buttons */
+  /* So, we remove absolute positioning specific properties if they were inherited via a general .btn class */
+  position: relative; /* Override absolute if .btn had it */
+  left: auto; /* Override left if .btn had it */
+  transform: none; /* Override transform if .btn had it */
+  top: auto; /* Override top if .btn had it */
+  margin: 0 10px; /* Add some spacing between them */
+  /* Ensure they use the .btn padding and other properties */
+}
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+  color: #eee;
+  background-image: linear-gradient(to top left, #411d47 0%, #581518 100%);
+}
+
+body.dark-mode main {
+  background-color: rgba(0, 0, 0, 0.4); /* Darker main area */
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.35); /* Adjusted shadow for darker bg */
+}
+
+/* .dark-mode .player { } */ /* Default seems okay */
+
+body.dark-mode .name {
+  color: #eee; /* Player names */
+}
+
+body.dark-mode .score {
+  color: #ff8da1; /* Lighter, vibrant score color */
+}
+
+body.dark-mode .player--active {
+  background-color: rgba(0, 0, 0, 0.3); /* Slightly darker active player bg */
+}
+
+body.dark-mode .current {
+  background-color: #c7365f; /* Can keep original or adjust e.g. #b32e52 */
+  color: #fff; /* Ensure text is white */
+}
+
+body.dark-mode .current-label {
+  color: #ccc; /* Lighter current label */
+}
+
+body.dark-mode .btn { /* General game buttons in dark mode */
+  color: #eee;
+  background-color: rgba(50, 50, 50, 0.6);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.2);
+  /* border: 1px solid #777; /* Optional border for more definition */
+}
+
+body.dark-mode .btn:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+}
+
+/* Specifically style theme toggle and home button for dark mode if they differ from general .btn */
+body.dark-mode #themeTogglePigGame, body.dark-mode .home-button-pig {
+    color: #eee;
+    background-color: rgba(50, 50, 50, 0.6); /* Consistent with other dark mode buttons */
+   /* border: 1px solid #777; */
+}
+
+body.dark-mode #themeTogglePigGame:hover, body.dark-mode .home-button-pig:hover {
+    background-color: rgba(80, 80, 80, 0.7);
+}
+
+
+body.dark-mode .player--winner {
+  background-color: #1a1a1a; /* Darker winner background */
+}
+
+body.dark-mode .player--winner .name {
+  color: #ff8da1; /* Winner name color matches new score color */
+}
